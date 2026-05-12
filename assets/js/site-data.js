@@ -163,21 +163,21 @@ window.PORTFOLIO_TREE = [
     "id": "books",
     "title": "books",
     "children": [
-      { "title": "gradient descent vol.1", "slug": "gradient-descent-vol-1" },
-      { "title": "gradient descent vol.2", "slug": "gradient-descent-vol-2" },
-      { "title": "firstness", "slug": "firstness" },
-      { "title": "steelstorm", "slug": "steelstorm" },
-      { "title": "god-shaped hole", "slug": "god-shaped-hole" },
-      { "title": "technocephalization", "slug": "technocephalization" }
+      { "title": "gradient descent vol.1", "year": "2021", "slug": "gradient-descent-vol-1" },
+      { "title": "gradient descent vol.2", "year": "2022", "slug": "gradient-descent-vol-2" },
+      { "title": "firstness vol.1-4", "year": "2021-2022", "slug": "firstness-vol-1-4" },
+      { "title": "steelstorm", "year": "2021", "slug": "steelstorm" },
+      { "title": "technocephalization", "year": "2021", "slug": "technocephalization" },
+      { "title": "god-shaped hole", "year": "2020", "slug": "god-shaped-hole" }
     ]
   },
   {
     "id": "events",
     "title": "events",
     "children": [
-      { "title": "mons tounaments+challenges", "slug": "mons-tounaments-challenges" },
-      { "title": "ursaku cup", "slug": "ursaku-cup" },
-      { "title": "tournament of everything", "slug": "tournament-of-everything" }
+      { "title": "mons tounaments+challenges", "year": "2024-", "slug": "mons-tounaments-challenges" },
+      { "title": "ursaku cup", "year": "2023", "slug": "ursaku-cup" },
+      { "title": "tournament of everything", "year": "2020", "slug": "tournament-of-everything" }
     ]
   }
 ];
