@@ -1,0 +1,218 @@
+:root {
+  color-scheme: light;
+  --ink: #111;
+  --paper: #fff;
+  --line: #111;
+  --type-size: 13px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  scrollbar-width: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: var(--type-size);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.index-shell {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: min(28rem, calc(100% - 48px));
+  padding: 24px 0 24px 24px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.index-shell h1 {
+  margin-bottom: 1rem;
+  font: inherit;
+}
+
+.site-title {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-title:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.tree-entry + .tree-entry {
+  margin-top: 0.14rem;
+}
+
+.tree-root > .tree-entry + .tree-entry {
+  margin-top: 0.2rem;
+}
+
+.category-toggle,
+.work-link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+.category-toggle {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.subcategory-toggle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.36rem;
+}
+
+.subcategory-toggle::before {
+  display: inline-block;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  content: "";
+  transform: translateY(-0.08em) rotate(-45deg);
+  transform-origin: center;
+}
+
+.subcategory-title {
+  color: #9a9a9a;
+  font-style: italic;
+}
+
+.subcategory-toggle[aria-expanded="true"]::before {
+  transform: translateY(-0.18em) rotate(45deg);
+}
+
+.work-link {
+  display: inline-block;
+}
+
+.work-year {
+  margin-left: 0.28rem;
+  color: #9a9a9a;
+  font-size: 0.86em;
+}
+
+.work-link.is-active .work-link-title {
+  font-weight: 700;
+}
+
+.category-toggle:hover,
+.work-link:hover .work-link-title {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.category-toggle:focus-visible,
+.work-link:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.tree-children {
+  margin: 0.12rem 0 0.45rem 0.38rem;
+  padding: 0.1rem 0 0.1rem 0.85rem;
+  border-left: 1px solid var(--line);
+}
+
+.tree-subgroup > .tree-children {
+  margin: 0.12rem 0 0.45rem 0;
+  padding: 0;
+  border-left: 0;
+}
+
+.tree-children[hidden] {
+  display: none;
+}
+
+.tree-children.is-empty {
+  min-height: 0.75rem;
+}
+
+.tree-entry {
+  position: relative;
+}
+
+.work-stage {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.work-title {
+  margin: 0;
+  font: inherit;
+  opacity: 1;
+  text-align: center;
+  transition: opacity 160ms ease;
+}
+
+.work-title.is-transitioning {
+  opacity: 0;
+}
+
+.work-title[hidden] {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .index-shell {
+    width: calc(100% - 36px);
+    padding: 18px 0 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-title {
+    transition: none;
+  }
+}
