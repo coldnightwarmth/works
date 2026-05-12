@@ -158,5 +158,26 @@ window.PORTFOLIO_TREE = [
       { "title": "bootlegs", "year": "2020-", "slug": "bootlegs" },
       { "title": "old+other+loops", "year": "2017-2019", "slug": "old-other-loops" }
     ]
+  },
+  {
+    "id": "books",
+    "title": "books",
+    "children": [
+      { "title": "gradient descent vol.1", "slug": "gradient-descent-vol-1" },
+      { "title": "gradient descent vol.2", "slug": "gradient-descent-vol-2" },
+      { "title": "firstness", "slug": "firstness" },
+      { "title": "steelstorm", "slug": "steelstorm" },
+      { "title": "god-shaped hole", "slug": "god-shaped-hole" },
+      { "title": "technocephalization", "slug": "technocephalization" }
+    ]
+  },
+  {
+    "id": "events",
+    "title": "events",
+    "children": [
+      { "title": "mons tounaments+challenges", "slug": "mons-tounaments-challenges" },
+      { "title": "ursaku cup", "slug": "ursaku-cup" },
+      { "title": "tournament of everything", "slug": "tournament-of-everything" }
+    ]
   }
 ];
