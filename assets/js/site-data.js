@@ -1,7 +1,8 @@
 window.PORTFOLIO_TREE = [
   {
     "id": "web",
-    "title": "web (always wip)",
+    "title": "web",
+    "note": "always wip",
     "children": [
       { "title": "paidiasophia.wiki", "year": "2022-", "slug": "paidiasophia-wiki" },
       { "title": "mons.link", "year": "2024-", "slug": "mons-link" },
@@ -105,27 +106,28 @@ window.PORTFOLIO_TREE = [
           { "title": "cast minis", "year": "2025", "slug": "cast-minis" }
         ]
       },
-      { "title": "memes+edits", "year": "2023-", "slug": "memes-edits" }
-    ]
-  },
-  {
-    "id": "data",
-    "title": "data",
-    "children": [
+      { "title": "memes+edits", "year": "2023-", "slug": "memes-edits" },
       {
-        "id": "traits",
-        "title": "traits",
+        "id": "book-covers",
+        "title": "book covers",
         "children": [
-          { "title": "record of hyperwar", "year": "2024-2025", "slug": "traits-record-of-hyperwar" },
-          { "title": "afella 2", "year": "2026", "slug": "traits-afella-2" },
-          { "title": "public archive", "year": "2021-", "slug": "traits-public-archive" }
+          { "title": "gradient descent vol.1", "year": "2021", "slug": "gradient-descent-vol-1" },
+          { "title": "gradient descent vol.2", "year": "2022", "slug": "gradient-descent-vol-2" },
+          { "title": "firstness vol.1-4", "year": "2021-2022", "slug": "firstness-vol-1-4" },
+          { "title": "steelstorm", "year": "2021", "slug": "steelstorm" },
+          { "title": "technocephalization", "year": "2021", "slug": "technocephalization" },
+          { "title": "god-shaped hole", "year": "2020", "slug": "god-shaped-hole" }
         ]
       },
-      { "title": "mons", "year": "2025", "slug": "mons" },
-      { "title": "fashion", "year": "2023", "slug": "fashion" },
-      { "title": "objects", "year": "2025", "slug": "objects" },
-      { "title": "mecha", "year": "2025", "slug": "mecha" },
-      { "title": "proto-energies", "year": "2024", "slug": "proto-energies" }
+      {
+        "id": "event-graphics",
+        "title": "event graphics",
+        "children": [
+          { "title": "mons tounaments+challenges", "year": "2024-", "slug": "mons-tounaments-challenges" },
+          { "title": "ursaku cup", "year": "2023", "slug": "ursaku-cup" },
+          { "title": "tournament of everything", "year": "2020", "slug": "tournament-of-everything" }
+        ]
+      }
     ]
   },
   {
@@ -160,24 +162,23 @@ window.PORTFOLIO_TREE = [
     ]
   },
   {
-    "id": "books",
-    "title": "books",
+    "id": "data",
+    "title": "data",
     "children": [
-      { "title": "gradient descent vol.1", "year": "2021", "slug": "gradient-descent-vol-1" },
-      { "title": "gradient descent vol.2", "year": "2022", "slug": "gradient-descent-vol-2" },
-      { "title": "firstness vol.1-4", "year": "2021-2022", "slug": "firstness-vol-1-4" },
-      { "title": "steelstorm", "year": "2021", "slug": "steelstorm" },
-      { "title": "technocephalization", "year": "2021", "slug": "technocephalization" },
-      { "title": "god-shaped hole", "year": "2020", "slug": "god-shaped-hole" }
-    ]
-  },
-  {
-    "id": "events",
-    "title": "events",
-    "children": [
-      { "title": "mons tounaments+challenges", "year": "2024-", "slug": "mons-tounaments-challenges" },
-      { "title": "ursaku cup", "year": "2023", "slug": "ursaku-cup" },
-      { "title": "tournament of everything", "year": "2020", "slug": "tournament-of-everything" }
+      {
+        "id": "traits",
+        "title": "traits",
+        "children": [
+          { "title": "record of hyperwar", "year": "2024-2025", "slug": "traits-record-of-hyperwar" },
+          { "title": "afella 2", "year": "2026", "slug": "traits-afella-2" },
+          { "title": "public archive", "year": "2021-", "slug": "traits-public-archive" }
+        ]
+      },
+      { "title": "mons", "year": "2025", "slug": "mons" },
+      { "title": "fashion", "year": "2023", "slug": "fashion" },
+      { "title": "objects", "year": "2025", "slug": "objects" },
+      { "title": "mecha", "year": "2025", "slug": "mecha" },
+      { "title": "proto-energies", "year": "2024", "slug": "proto-energies" }
     ]
   }
 ];

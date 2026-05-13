@@ -5,6 +5,7 @@ const rootDir = path.resolve(__dirname, "..");
 const dataPath = path.join(rootDir, "assets/js/site-data.js");
 const dataSource = fs.readFileSync(dataPath, "utf8");
 const match = dataSource.match(/window\.PORTFOLIO_TREE = ([\s\S]*);\s*$/);
+const assetVersion = "20260512-gallery4";
 
 if (!match) {
   throw new Error("Could not read PORTFOLIO_TREE from assets/js/site-data.js");
@@ -42,9 +43,10 @@ const pageHtml = (work) => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${title}</title>
-    <link rel="stylesheet" href="../../assets/css/site.css">
-    <script src="../../assets/js/site-data.js" defer></script>
-    <script src="../../assets/js/site.js" defer></script>
+    <link rel="stylesheet" href="../../assets/css/site.css?v=${assetVersion}">
+    <script src="../../assets/js/site-data.js?v=${assetVersion}" defer></script>
+    <script src="../../assets/js/page-data.js?v=${assetVersion}" defer></script>
+    <script src="../../assets/js/site.js?v=${assetVersion}" defer></script>
   </head>
   <body data-base-path="../../" data-page-title="${title}" data-page-slug="${slug}">
     <main class="site-shell">
@@ -53,7 +55,7 @@ const pageHtml = (work) => {
         <nav class="work-tree" aria-label="works" data-work-tree></nav>
       </aside>
 
-      <section class="work-stage" aria-live="polite" aria-atomic="true">
+      <section class="work-stage" aria-live="polite" aria-atomic="true" data-work-stage>
         <h2 class="work-title" data-work-title>${title}</h2>
       </section>
     </main>
