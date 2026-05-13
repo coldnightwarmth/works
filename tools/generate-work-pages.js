@@ -5,7 +5,7 @@ const rootDir = path.resolve(__dirname, "..");
 const dataPath = path.join(rootDir, "assets/js/site-data.js");
 const dataSource = fs.readFileSync(dataPath, "utf8");
 const match = dataSource.match(/window\.PORTFOLIO_TREE = ([\s\S]*);\s*$/);
-const assetVersion = "20260512-gallery4";
+const assetVersion = "20260513-gallery29";
 
 if (!match) {
   throw new Error("Could not read PORTFOLIO_TREE from assets/js/site-data.js");
@@ -43,9 +43,13 @@ const pageHtml = (work) => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${title}</title>
+    <link rel="preconnect" href="https://gateway.irys.xyz">
+    <link rel="preconnect" href="https://na-assets.pinit.io">
+    <link rel="preconnect" href="https://prod-image-cdn.tensor.trade">
     <link rel="stylesheet" href="../../assets/css/site.css?v=${assetVersion}">
     <script src="../../assets/js/site-data.js?v=${assetVersion}" defer></script>
     <script src="../../assets/js/page-data.js?v=${assetVersion}" defer></script>
+    <script src="../../assets/js/gallery-images.js?v=${assetVersion}" defer></script>
     <script src="../../assets/js/site.js?v=${assetVersion}" defer></script>
   </head>
   <body data-base-path="../../" data-page-title="${title}" data-page-slug="${slug}">

@@ -1,7 +1,11 @@
 (() => {
   const tensorTradeBase = "https://www.tensor.trade/trade";
   const tensorItemBase = "https://www.tensor.trade/item";
+  const exchangeSingleBase = "https://exchange.art/single";
   const tensorIcon = "assets/images/logos/tensor.png";
+  const exchangeArtIcon = "assets/images/logos/exchange-art.png";
+  const objktIcon = "assets/images/logos/objkt.png";
+  const vvvIcon = "assets/images/logos/vvv.svg";
   const hyperwarhaulImageBase = "https://gateway.irys.xyz/CsCc2zxCosgBVuDyLFmBhJTDjGWpBb4k5B3soLWPmMcA";
   const hyperwarhaulThumbBase = "assets/images/hyperwarhaul/thumbs";
   const hyperwarhaulRelics = [
@@ -164,6 +168,12 @@
     "title": "record of hyperwar🗡📜",
     "description": "a restored archive of illuminated scrolls recounting tales of primordial struggle",
     "tradeSlug": "record_of_hyperwar",
+    "displayCount": 555,
+    "excludeTitles": ["Scroll 0"],
+    "thumbBase": "assets/images/record-of-hyperwar/thumbs",
+    "thumbFilePrefix": "item-",
+    "thumbFileMode": "index",
+    "thumbExtension": "jpg",
     "items": [
       [
         "Scroll 207",
@@ -2916,6 +2926,10 @@
     "title": "hyperwarhaul+",
     "description": "additional relics discovered alongside the record of hyperwar at the old north temple complex",
     "tradeSlug": "hyperwarhaul_",
+    "thumbBase": "assets/images/hyperwarhaul-plus/thumbs",
+    "thumbFilePrefix": "item-",
+    "thumbFileMode": "index",
+    "thumbExtension": "jpg",
     "items": [
       [
         "relic 418",
@@ -5141,8 +5155,13 @@
   },
   "play-cards-alpha-test-print": {
     "title": "play cards alpha test print",
-    "description": "",
+    "description": "samples made in 2025 for a playable+play themed card collection. minted in '26 to test fees and gift to friends",
     "tradeSlug": "884d3590-b68b-40b6-8fbf-fb2c311c1edd",
+      "thumbBase": "assets/images/play-cards-alpha-test-print/thumbs",
+      "thumbFilePrefix": "card-",
+      "thumbExtension": "jpg",
+      "cardTilt": true,
+      "thumbnailFit": "contain",
     "items": [
       [
         "play card alpha test print 20",
@@ -5310,6 +5329,19 @@
     "title": "peer study 3: afella 2",
     "description": "esoteric anime gamer girls",
     "tradeSlug": "afella_2",
+    "externalNote": "minting now! ☞",
+    "externalLinksBefore": [
+      {
+        "url": "https://www.vvv.so/peer-study-3-afella-2",
+        "icon": vvvIcon,
+        "iconClass": "vvv",
+        "label": "VVV"
+      }
+    ],
+    "thumbBase": "assets/images/peer-study-3-afella-2/thumbs",
+    "thumbFilePrefix": "item-",
+    "thumbFileMode": "index",
+    "thumbExtension": "jpg",
     "items": [
       [
         "peer study 3: afella 2 #37",
@@ -7082,6 +7114,19 @@
     "title": "peer study 2: aahngeez!",
     "description": "premium bootleg avant kikicore moeslop generations",
     "tradeSlug": "aahngeez",
+    "externalNote": "minting now! ☞",
+    "externalLinksBefore": [
+      {
+        "url": "https://www.vvv.so/aahngeez",
+        "icon": vvvIcon,
+        "iconClass": "vvv",
+        "label": "VVV"
+      }
+    ],
+    "thumbBase": "assets/images/peer-study-2-aahngeez/thumbs",
+    "thumbFilePrefix": "item-",
+    "thumbFileMode": "index",
+    "thumbExtension": "jpg",
     "items": [
       [
         "aahngeez 66",
@@ -7735,26 +7780,172 @@
     return match ? Number(match[1]) : index;
   };
 
-  const buildTensorGalleryPage = (source) => ({
+  const getGalleryAssetName = (value) => {
+    const cleaned = [];
+    let lastDash = false;
+
+    String(value || "item").toLowerCase().split("").forEach((char) => {
+      if (/[a-z0-9]/.test(char)) {
+        cleaned.push(char);
+        lastDash = false;
+      } else if (!lastDash) {
+        cleaned.push("-");
+        lastDash = true;
+      }
+    });
+
+    return cleaned.join("").replace(/^-+|-+$/g, "") || "item";
+  };
+
+  const jformsItems = [
+    [
+      "j-form tri (again)",
+      "https://arweave.net/hBTOJ-b4Tp2xOR85895Sji1sz6gm2yVUFPRjTEchVho?ext=png",
+      "311eAfy5NG4EN74ybSfXFHt5EZW55qU8PCo7XEEgF816"
+    ],
+    [
+      "horizon B",
+      "https://arweave.net/IvWLSfWcZZz0erKoCMHaL2oiao6qv2Ntjtzdk8NLYTQ?ext=png",
+      "3Qi7Ytu4CmfkEAHodSceMQFHkEGgHoDhuNrj17nHZDR1"
+    ],
+    [
+      "j-form_a.1",
+      "https://arweave.net/eCHsbEeiRYUNhvS54dGMQONvydErUTUyoHyUWq_O1hQ?ext=png",
+      "69t2WdgnLUUytmD1fAyFEvCTXc4wfrmgmV6NjQ7aaJdq"
+    ],
+    [
+      "j-form VI ii",
+      "https://arweave.net/upyomlFdBumqxyROvaY9LRQIZgzEaJKtDBiPabYOIRE?ext=png",
+      "A7jcouWGvbTW4craCx3yKutNvaTtTnuA7g1ws4KbF71H"
+    ],
+    [
+      "j-form_a.2",
+      "https://arweave.net/lRpUsnVNUQSK0r5Cu6X2fJ1piolwj8ViBTw_unGTeUU?ext=png",
+      "C4pAJ4N6WVocLcrAF3Q3WxDdXuK2Y7JZL5MrMGuRjEWa"
+    ],
+    [
+      "j-form ffour",
+      "https://arweave.net/e5eTGmZ6PjSI7TXjpuzDIcu4xKtzMgEUvWQqOwU-vzE?ext=png",
+      "EQngpgEkeJFczTEkrWqkqk81cY9ZM6KCxARd1vcS5CrW"
+    ],
+    [
+      "j-form VI",
+      "https://arweave.net/EWdRe2uEn2LNsaJxIGgiG3CFaCL2FHIjr3VXgZwPpDs?ext=png",
+      "HeYaxK8rzzSeQLVxvfURFc47uuwe4uEyCnfSVd12wDkT"
+    ]
+  ];
+
+  const exchangeArtOtherItems = [
+    [
+      "infinity print",
+      "https://arweave.net/kqWrl028CKvrIK5TYCPdeHcWPi6AvoV11VgXFe4VpQ0?ext=png",
+      "6Yn2qVPPrwmZmng8rHcqWqmn3vK6jfSuqD7nsRe5gEyd"
+    ],
+    [
+      "ancient mew",
+      "https://arweave.net/lMgGisgKz5gUaGeZD3nsDwxmJK1mjkhncsptLDZGxG0?ext=png",
+      "A9gnntQUXXYM8mREk2JJphgsLTa8Rh2Rct9QVNTSkpXn"
+    ],
+    [
+      "fflloorraall",
+      "https://arweave.net/0HkxrxokBDQtTAeljUyekD0Ksde2igjG9pomXSCbpMY?ext=png",
+      "4Z9Bok4NYQDg389iFwMvUUq3yXtnrdk5g72QDrSWKFAv"
+    ]
+  ];
+
+  const buildExchangeArtItem = (slug, item, index) => {
+    const assetName = getGalleryAssetName(item[0]);
+    const key = `item-${String(index).padStart(4, "0")}-${assetName}`;
+
+    return {
+      "title": item[0],
+      "order": index,
+      "optimizedKey": `${slug}/${key}`,
+      "src": item[1],
+      "thumbSrc": `assets/images/${slug}/thumbs/${key}.webp`,
+      "externalUrl": `${exchangeSingleBase}/${item[2]}`,
+      "externalIcon": exchangeArtIcon,
+      "externalLabel": "exchange.art"
+    };
+  };
+
+  const buildTensorGalleryPage = (slug, source) => ({
     "type": "gallery",
     "title": source.title,
     "description": source.description,
+    ...(Number.isFinite(source.displayCount) ? { "itemCount": source.displayCount } : {}),
+    ...(source.externalNote ? { "externalNote": source.externalNote } : {}),
+    ...(source.externalLinksBefore ? { "externalLinksBefore": source.externalLinksBefore } : {}),
     "externalUrl": `${tensorTradeBase}/${source.tradeSlug}`,
     "externalIcon": tensorIcon,
     "gallery": {
       "columns": 4,
       "rows": 3,
       "thumbSize": 400,
-      "items": source.items.map(([title, src, tokenMint], index) => ({
-        "title": title,
-        "order": getTensorItemOrder(title, src, index),
-        "src": src,
-        "externalUrl": `${tensorItemBase}/${tokenMint}`
-      }))
+      ...(source.thumbnailFit ? { "thumbnailFit": source.thumbnailFit } : {}),
+      ...(source.cardTilt ? { "cardTilt": true } : {}),
+      "items": source.items.flatMap(([title, src, tokenMint], index) => {
+        if (source.excludeTitles?.includes(title)) {
+          return [];
+        }
+
+        const order = getTensorItemOrder(title, src, index);
+        const thumbKey = source.thumbFileMode === "index" ? index : order;
+
+        return [{
+          "title": title,
+          "order": order,
+          "optimizedKey": `${slug}/item-${String(index).padStart(4, "0")}-${getGalleryAssetName(title)}`,
+          "src": src,
+          ...(source.thumbBase ? {
+            "thumbSrc": `${source.thumbBase}/${source.thumbFilePrefix || ""}${thumbKey}.${source.thumbExtension || "jpg"}`
+          } : {}),
+          "externalUrl": `${tensorItemBase}/${tokenMint}`
+        }];
+      })
     }
   });
 
   window.PORTFOLIO_PAGES = {
+    "jforms": {
+      "type": "gallery",
+      "title": "jforms",
+      "description": "anime girl expressionism",
+      "externalUrl": "https://exchange.art/series/j-forms/nfts",
+      "externalIcon": exchangeArtIcon,
+      "externalIconClass": "exchange-art",
+      "itemCount": jformsItems.length,
+      "gallery": {
+        "columns": 4,
+        "rows": 3,
+        "thumbSize": 400,
+        "defaultSortMode": "ordered",
+        "items": jformsItems.map((item, index) => buildExchangeArtItem("jforms", item, index))
+      }
+    },
+    "exchange-art-other": {
+      "type": "gallery",
+      "title": "other",
+      "description": "misc. works",
+      "externalUrl": "https://exchange.art/myne/nfts",
+      "externalIcon": exchangeArtIcon,
+      "externalIconClass": "exchange-art",
+      "itemCount": exchangeArtOtherItems.length,
+      "gallery": {
+        "columns": 3,
+        "rows": 1,
+        "thumbSize": 400,
+        "defaultSortMode": "ordered",
+        "defaultZoomIndex": 0,
+        "showSort": false,
+        "showPagination": false,
+        "showZoom": false,
+        "zoomLevels": [
+          { "columns": 3, "rows": 1 }
+        ],
+        "items": exchangeArtOtherItems.map((item, index) => buildExchangeArtItem("exchange-art-other", item, index))
+      }
+    },
     "hyperwarhaul": {
       "type": "gallery",
       "title": "hyperwarhaul",
@@ -7765,6 +7956,7 @@
         "columns": 4,
         "rows": 3,
         "thumbSize": 400,
+        "hoverPreview": "animated",
         "items": hyperwarhaulRelics.map((number) => {
           const tokenMint = hyperwarhaulTokenMints[number];
 
@@ -7772,6 +7964,7 @@
             "title": `relic ${number}`,
             "number": number,
             "order": number,
+            "optimizedKey": `hyperwarhaul/relic-${number}`,
             "src": `${hyperwarhaulImageBase}/${number}.gif`,
             "thumbSrc": `${hyperwarhaulThumbBase}/relic-${number}.jpg`,
             "externalUrl": tokenMint ? `${tensorItemBase}/${tokenMint}` : undefined
@@ -7779,8 +7972,65 @@
         })
       }
     },
+    "jpegs-cool-cards": {
+      "type": "gallery",
+      "title": "jpegs.cool cards",
+      "description": "sun, moon, + frontier— cards made for group jpegs.cool fundraiser",
+      "externalUrl": "https://www.jpegs.cool/cards",
+      "externalText": "/",
+      "externalNote": "minting now! ☞",
+      "itemCount": 3,
+      "gallery": {
+        "columns": 3,
+        "rows": 1,
+        "defaultSortMode": "ordered",
+        "defaultZoomIndex": 0,
+        "showSort": false,
+        "showPagination": false,
+        "showZoom": false,
+        "gap": 48,
+        "itemAspectRatio": "0.7",
+        "cardTilt": true,
+        "thumbnailFit": "contain",
+        "zoomLevels": [
+          { "columns": 3, "rows": 1 }
+        ],
+        "items": [
+          {
+            "title": "sun",
+            "order": 0,
+            "optimizedKey": "jpegs-cool-cards/item-0000-sun",
+            "src": "assets/images/jpegs-cool-cards/large/item-0000-sun-1440.webp",
+            "thumbSrc": "assets/images/jpegs-cool-cards/thumbs/sun.webp",
+            "externalUrl": "https://exchange.art/editions/CkK6qtzmeeAt7eRzTJFmovHaZdCPxHc8xDTxya6EsSFp",
+            "externalIcon": exchangeArtIcon,
+            "externalLabel": "exchange.art"
+          },
+          {
+            "title": "moon",
+            "order": 1,
+            "optimizedKey": "jpegs-cool-cards/item-0001-moon",
+            "src": "assets/images/jpegs-cool-cards/large/item-0001-moon-1440.webp",
+            "thumbSrc": "assets/images/jpegs-cool-cards/thumbs/moon.webp",
+            "externalUrl": "https://exchange.art/editions/7nzV8414ztagg5e5WSUR5w9zzGKnm6UnLYdg4vqDymSL",
+            "externalIcon": exchangeArtIcon,
+            "externalLabel": "exchange.art"
+          },
+          {
+            "title": "frontier",
+            "order": 2,
+            "optimizedKey": "jpegs-cool-cards/item-0002-frontier",
+            "src": "assets/images/jpegs-cool-cards/large/item-0002-frontier-1440.webp",
+            "thumbSrc": "assets/images/jpegs-cool-cards/thumbs/frontier.webp",
+            "externalUrl": "https://objkt.com/tokens/KT1CqLr4ew9rJMDf999WxHmLacU8R1sczRmW/2",
+            "externalIcon": objktIcon,
+            "externalLabel": "objkt"
+          }
+        ]
+      }
+    },
     ...Object.fromEntries(
-      Object.entries(tensorGallerySources).map(([slug, source]) => [slug, buildTensorGalleryPage(source)])
+      Object.entries(tensorGallerySources).map(([slug, source]) => [slug, buildTensorGalleryPage(slug, source)])
     )
   };
 })();
